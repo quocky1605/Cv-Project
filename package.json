@@ -3,15 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "npm run lint && node src/server",
+    "build": "next build src/app",
+    "start": "NODE_ENV=production && node src/server",
+    "lint:fix": "eslint --fix --ext .js, .",
+    "lint": "eslint . --ext .js, --quiet"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.10.0",
+    "@mui/styles": "^5.9.3",
+    "babel-plugin-styled-components": "^2.0.7",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "framer-motion": "^7.1.0",
     "next": "12.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.54.4"
   },
   "devDependencies": {
     "eslint": "8.21.0",
