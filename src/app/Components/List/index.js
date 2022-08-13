@@ -68,61 +68,63 @@ const List = () => {
   const handleClose = () => setOpen(false);
   return (
     <Grid container direction="column" style={{ height: "fit-content" }}>
-      <Box sx={{ width: "100%", height: "max-content" }}>
-        <ImageList variant="masonry" cols={3} gap={8}>
-          {itemData.map((item, index) => (
-            <ImageListItem
-              key={index}
-              className={classes.image}
-              onClick={() => handleOpen(item.id)}
-            >
-              <Image
-                src={item.img}
+      <Grid item>
+        <Box sx={{ width: "100%", height: "max-content" }}>
+          <ImageList variant="masonry" cols={3} gap={8}>
+            {itemData.map((item, index) => (
+              <ImageListItem
                 key={index}
-                style={{ borderRadius: "20px" }}
-                alt={item.title}
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <Box
-              sx={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "50vw",
-                padding: 0,
-                bgcolor: "background.paper",
-                boxShadow: 24,
-                p: 1,
-                borderRadius: "20px",
-              }}
-            >
-              <Image
-                id="transition-modal-title"
-                src={item.img}
-                style={{ borderRadius: "20px", width: "100%" }}
-                alt={item.title}
-              />
-            </Box>
-          </Fade>
-        </Modal>
-      </Box>
+                className={classes.image}
+                onClick={() => handleOpen(item.id)}
+              >
+                <Image
+                  src={item.img}
+                  key={index}
+                  style={{ borderRadius: "20px" }}
+                  alt={item.title}
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: "50vw",
+                  padding: 0,
+                  bgcolor: "background.paper",
+                  boxShadow: 24,
+                  p: 1,
+                  borderRadius: "20px",
+                }}
+              >
+                <Image
+                  id="transition-modal-title"
+                  src={item.img}
+                  style={{ borderRadius: "20px", width: "100%" }}
+                  alt={item.title}
+                />
+              </Box>
+            </Fade>
+          </Modal>
+        </Box>
+      </Grid>
     </Grid>
   );
 };
